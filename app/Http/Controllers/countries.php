@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airlines as ModelsAirlines;
+use App\Models\Countries as ModelsCountries;
 use Illuminate\Http\Request;
 
-class Airlines extends Controller
+class Countries extends Controller
 {
     
     public function create(Request $request){
@@ -14,22 +14,22 @@ class Airlines extends Controller
             'code'   => 'required|string|min:6|max:25',
         ]);
 
-        $Airlines = ModelsAirlines::create([
+        $Countries = ModelsCountries::create([
             'name'      => $request->name,
             'code'   => $request->code,
         ]);
 
-        $Airlines->save();
+        $Countries->save();
 
-        return redirect('/airlines');
+        return redirect('/Countries');
     }
 
     public function delete($id)
     {
-        $Airlines = ModelsAirlines::find($id);
-        $Airlines->delete();
+        $Countries = ModelsCountries::find($id);
+        $Countries->delete();
 
-        return redirect('/airlines');
+        return redirect('/Countries');
     }
 
     public function edit ($id,Request $request){
@@ -38,13 +38,13 @@ class Airlines extends Controller
             'code'   => 'required|string|min:6|max:25',
         ]);
 
-        $Airlines = ModelsAirlines::find($id);
+        $Countries = ModelsCountries::find($id);
 
-        $Airlines->name = $request->name;
-        $Airlines->code = $request->code;
+        $Countries->name = $request->name;
+        $Countries->code = $request->code;
 
-        $Airlines->save();
+        $Countries->save();
 
-        return redirect('/airlines');
+        return redirect('/Countries');
     }
 }

@@ -10,7 +10,7 @@
             <td>{{$airline->name}}</td>
             <td>{{$airline->code}}</td>
             <td> 
-                <a href="/update/airline/{{$airline->id}}">Edit</a>
+                <a href="/update/airline/{{$airline->id}}" <button type="submit" class="spacing-1rem centered-button btn btn-warning">Edit</button></a>
                 <form action='/airlines/delete/{{$airline->id}}' method="POST">
                     @csrf
                     <button type="submit" class="spacing-1rem centered-button btn btn-danger">Delete</button>
@@ -21,4 +21,3 @@
     @endforeach
 </table>
 
-spacing-1rem centered-button btn btn-danger

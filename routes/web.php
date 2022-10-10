@@ -29,8 +29,10 @@ Route::get('/add_airport', [Views::class, 'add_airport']);
 
 Route::get('/add_airlines', [Views::class, 'add_airlines']);
 
+Route::get('/add_countries', [Views::class, 'add_countries']);
 
 
+Route::post('/add/countries', [Countries::class, 'create']);
 
 Route::post('/add/airport', [Airport::class, 'create']);
 
@@ -41,4 +43,12 @@ Route::post('/airlines/delete/{id}', [Airlines::class, 'delete']);
 
 Route::get('/update/airline/{id}', [Views::class, 'update_airline']);
 
-Route::post('/airlines/edit/{id}', [Airlines::class, 'edit']);
+Route::post('/update/airline/{id}', [Airlines::class, 'edit']);
+
+
+Route::get('/update/airport/{id}', [Views::class, 'update_airport']);
+
+Route::post('/update/airport/{id}', [Airport::class, 'edit']);
+
+Route::post('/airport/delete/{id}', [Airport::class, 'delete']);
+

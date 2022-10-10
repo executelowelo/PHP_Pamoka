@@ -37,5 +37,18 @@ class Views extends Controller
     return view('add_airlines');
     }
 
+    public function update_airline($id){
+
+        $airline = Airlines::find($id);
+
+        return view('update_airline', ['airline' => $airline]);
+    }
+
+    public function update_airport($id){
+
+        $airport = Airport::find($id);
     
+        return view('update_airport', ['airport' => $airport]);
+    }
+        
 }

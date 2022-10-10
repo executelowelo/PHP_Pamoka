@@ -29,4 +29,32 @@ class Airport extends Controller
 
     }
 
+    public function delete($id)
+    {
+        $Airport = ModelsAirport::find($id);
+        $Airport->delete();
+
+        return redirect('/airports');
+    }
+
+    public function edit ($id,Request $request){
+        $request->validate([
+            'name'      => 'required|string|min:1|max:30',
+            'country'   => 'required|string|min:1|max:25',
+            'location'  => 'required|string|min:1|max:30',
+            'airlines'  => 'required|string|min:1|max:25',
+        ]);
+
+        $Airport = ModelsAirport::find($id);
+
+        $Airport->name = $request->name;
+        $Airport->country = $request->country;
+        $Airport->location = $request->location;
+        $Airport->airlines = $request->airlines;
+
+        $Airport->save();
+
+        return redirect('/airports');
+    }
+
 }
