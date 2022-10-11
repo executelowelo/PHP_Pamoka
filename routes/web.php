@@ -3,6 +3,7 @@
 use App\Http\Controllers\Airport;
 use App\Http\Controllers\Views;
 use App\Http\Controllers\Airlines;
+use App\Http\Controllers\Countries;
 use Illuminate\Support\Facades\Route;
 
 
@@ -52,3 +53,9 @@ Route::post('/update/airport/{id}', [Airport::class, 'edit']);
 
 Route::post('/airport/delete/{id}', [Airport::class, 'delete']);
 
+
+Route::post('/countries/delete/{id}', [Countries::class, 'delete']);
+
+Route::get('/update/countrie/{id}', [Views::class, 'update_countrie']);
+
+Route::post('/update/countrie/{id}', [Countries::class, 'edit']);

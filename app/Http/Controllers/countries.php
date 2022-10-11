@@ -21,7 +21,7 @@ class Countries extends Controller
 
         $Countries->save();
 
-        return redirect('/Countries');
+        return redirect('/countries');
     }
 
     public function delete($id)
@@ -29,7 +29,7 @@ class Countries extends Controller
         $Countries = ModelsCountries::find($id);
         $Countries->delete();
 
-        return redirect('/Countries');
+        return redirect('/countries');
     }
 
     public function edit ($id,Request $request){
@@ -45,6 +45,6 @@ class Countries extends Controller
 
         $Countries->save();
 
-        return redirect('/Countries');
+        return redirect('/countries');
     }
 }

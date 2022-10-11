@@ -5,7 +5,7 @@
         @csrf
         Name :<input type="text" name="name">
         code :<input type="text" name="code">
-        <button href="/Countries"  type="submit">Add</button>
+        <button href="/countries"  type="submit">Add</button>
     </form>
 
 </body>

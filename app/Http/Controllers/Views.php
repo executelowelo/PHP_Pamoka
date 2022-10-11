@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Airport;
 use App\Models\Airlines;
+use App\Models\Countries;
 use Illuminate\Http\Request;
 
 class Views extends Controller
@@ -19,14 +20,16 @@ class Views extends Controller
         return view('airports', ['airports' => $airports]);
     }
 
-    public function countries(){
-        return view('countries');
-    }
-
     public function airlines(){
         $airlines = Airlines::all();
 
         return view('airlines', ['airlines' => $airlines]);
+    }
+
+    public function countries(){
+        $countries = Countries::all();
+
+        return view('countries', ['countries' => $countries]);
     }
 
     public function add_airport(){
@@ -36,6 +39,10 @@ class Views extends Controller
     public function add_airlines(){
     return view('add_airlines');
     }
+
+    public function add_countries(){
+        return view('add_countries');
+        }
 
     public function update_airline($id){
 
@@ -51,4 +58,10 @@ class Views extends Controller
         return view('update_airport', ['airport' => $airport]);
     }
         
+    public function update_countrie($id){
+
+        $countrie = Countries::find($id);
+    
+        return view('update_countrie', ['countrie' => $countrie]);
+    }
 }
