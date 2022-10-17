@@ -16,7 +16,7 @@ class Airlines extends Migration
         Schema::create('airlines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code');
+            $table->integer('countries_id');
             $table->timestamps();
         });
     }

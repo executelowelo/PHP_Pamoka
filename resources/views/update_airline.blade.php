@@ -4,7 +4,7 @@
     <form action="/update/airline/{{$airline->id}}" method="POST">
         @csrf
         Name :<input type="text" name="name" value="{{$airline->name}}">
-        code :<input type="text" name="code" value="{{$airline->code}}">
+        country :<input type="text" name="country" value="{{$airline->country}}">
         <button href="/airlines"  type="submit">Update</button>
     </form>
 

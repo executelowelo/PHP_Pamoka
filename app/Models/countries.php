@@ -13,4 +13,14 @@ class Countries extends Model
     protected $table = 'countries';
 
     protected $fillable = ['name', 'code'];
+
+    public function airlines()
+    {
+        return $this->hasMany(Airlines::class);
+    }
+
+    public function airport()
+    {
+        return $this->hasMany(Airport::class);
+    }
 }

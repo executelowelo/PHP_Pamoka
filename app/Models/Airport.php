@@ -11,5 +11,17 @@ class Airport extends Model
 
     protected $table = 'airports';
 
-    protected $fillable = ['name', 'country', 'location', 'airlines'];
+    protected $fillable = ['name', 'countries_id', 'location', 'airlines_id'];
+
+    
+    public function countries()
+    {
+        return $this->belongsTo(Countries::class, "countries_id");
+    }
+
+    public function airlines()
+    {
+        return $this->belongsTo(Airlines::class, "airlines_id");
+    }
 }
+

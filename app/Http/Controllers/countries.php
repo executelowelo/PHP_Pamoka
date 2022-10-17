@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Countries as ModelsCountries;
+use Faker\Extension\CountryExtension;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Symfony\Component\HttpFoundation\Test\Constraint\ResponseIsRedirected;
 
 class Countries extends Controller
 {
@@ -46,5 +49,39 @@ class Countries extends Controller
         $Countries->save();
 
         return redirect('/countries');
+
+        
     }
+    public function noAirlinbes(){
+        try {
+            $Countries = ModelsCountries::all();
+            $arr = array();
+            foreach ($Countries as $country){
+                if($country->airlines->count() === 0){
+                    array_push($arr, $country);
+                }
+            } 
+            return response()->json($arr);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+    }
+    
+
+    public function test1(){
+        try {
+            $Countries = ModelsCountries::all();
+            $arr = array();
+            foreach ($Countries as $country){
+                if($country->airlines->count() === 0 && $country->airport->count() === 0){
+                    array_push($arr, $country);
+                }
+            } 
+            return response()->json($arr);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+    }
+
+
 }

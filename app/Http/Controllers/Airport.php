@@ -10,16 +10,16 @@ class Airport extends Controller
     
     public function create(Request $request){
         $request->validate([
-            'name'      => 'required|string|min:8|max:30',
-            'airline'   => 'required|string|min:6|max:25',
-            'country'   => 'required|string|min:6|max:25',
-            'location'  => 'required|string|min:6|max:25',
+            'name'      => 'required|string|min:1|max:30',
+            'airline'   => 'required|string|min:1|max:25',
+            'country'   => 'required|string|min:1|max:25',
+            'location'  => 'required|string|min:1|max:25',
         ]);
 
         $airport = ModelsAirport::create([
             'name'      => $request->name,
-            'airlines'   => $request->airline,
-            'country'   => $request->country,
+            'airlines_id'   => $request->airline,
+            'countries_id'   => $request->country,
             'location'  => $request->location 
         ]);
 
@@ -40,9 +40,9 @@ class Airport extends Controller
     public function edit ($id,Request $request){
         $request->validate([
             'name'      => 'required|string|min:1|max:30',
-            'country'   => 'required|string|min:1|max:25',
+            'countries_id'   => 'required|string|min:1|max:25',
             'location'  => 'required|string|min:1|max:30',
-            'airlines'  => 'required|string|min:1|max:25',
+            'airlines_id'  => 'required|string|min:1|max:25',
         ]);
 
         $Airport = ModelsAirport::find($id);

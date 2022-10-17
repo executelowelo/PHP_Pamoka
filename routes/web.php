@@ -59,3 +59,28 @@ Route::post('/countries/delete/{id}', [Countries::class, 'delete']);
 Route::get('/update/countrie/{id}', [Views::class, 'update_countrie']);
 
 Route::post('/update/countrie/{id}', [Countries::class, 'edit']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('test', [Countries::class, 'noAirlinbes']);
+
+Route::get('test1', [Countries::class, 'test1']);

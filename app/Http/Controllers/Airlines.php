@@ -11,12 +11,12 @@ class Airlines extends Controller
     public function create(Request $request){
         $request->validate([
             'name'      => 'required|string|min:8|max:30',
-            'code'   => 'required|string|min:6|max:25',
+            'country'   => 'required|string',
         ]);
 
         $Airlines = ModelsAirlines::create([
             'name'      => $request->name,
-            'code'   => $request->code,
+            'countries_id'   => $request->country,
         ]);
 
         $Airlines->save();
@@ -35,13 +35,13 @@ class Airlines extends Controller
     public function edit ($id,Request $request){
         $request->validate([
             'name'      => 'required|string|min:8|max:30',
-            'code'   => 'required|string|min:6|max:25',
+            'country'   => 'required|string|min:6|max:25',
         ]);
 
         $Airlines = ModelsAirlines::find($id);
 
         $Airlines->name = $request->name;
-        $Airlines->code = $request->code;
+        $Airlines->countries_id = $request->country;
 
         $Airlines->save();
 

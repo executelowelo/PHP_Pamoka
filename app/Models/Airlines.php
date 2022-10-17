@@ -10,5 +10,12 @@ class Airlines extends Model
     use HasFactory;
 
     protected $table = "airlines";
-    protected $fillable = ["name", 'code', 'updated_at', 'created_at'];
+    protected $fillable = ["name", 'countries_id', 'updated_at', 'created_at'];
+
+    public function countries()
+    {
+        return $this->belongsTo(Countries::class, "countries_id");
+    }
 }
+
+

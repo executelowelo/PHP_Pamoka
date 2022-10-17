@@ -4,7 +4,7 @@
     <form action="/add/airlines" method="POST">
         @csrf
         Name :<input type="text" name="name">
-        code :<input type="text" name="code">
+        country :<input type="text" name="country">
         <button href="/airlines"  type="submit">Add</button>
     </form>
 
